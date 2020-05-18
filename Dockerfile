@@ -19,6 +19,8 @@ RUN chown -R root:staff /opt/TinyTeX \
   && chmod -R g+wx /opt/TinyTeX/bin \
   && tlmgr path add
 
+RUN wget https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh \
+  && sh Miniconda2-latest-Linux-x86_64.sh -b
 
 RUN apt-get clean
 RUN sed -i '/^R_LIBS_USER=/d' /usr/local/lib/R/etc/Renviron
