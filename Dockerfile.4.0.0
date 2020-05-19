@@ -12,16 +12,14 @@ ENV PATH="${PATH}:/miniconda3/bin"
 RUN apt update \
   && apt-get install -y curl wget gzip
 
-RUN Rscript -e "install.packages(Ncpus=6,c('ggpubr', 'rlecuyer', 'pkgmaker', 'RcppEigen'))"
+RUN Rscript -e "install.packages(Ncpus=6,c('reticulate', 'ggpubr', 'rlecuyer', 'pkgmaker', 'RcppEigen'))"
 RUN tlmgr install harvard ctable multirow eurosym comment setspace enumitem \
   && tlmgr path add
-RUN chown -R root:staff /opt/TinyTeX \
-  && chmod -R g+w /opt/TinyTeX \
-  && chmod -R g+wx /opt/TinyTeX/bin \
+RUN chown -R root:staff /opt/ \
+  && chmod -R g+wx /opt/ \
   && tlmgr path add
 
-RUN wget https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh \
-  && sh Miniconda2-latest-Linux-x86_64.sh -b -p /miniconda3
+RUN Rscript -e "library(reticulate); install_miniconda(path='/miniconda3',update=TRUE,force=TRUE)"
 
 RUN apt-get clean
 RUN sed -i '/^R_LIBS_USER=/d' /usr/local/lib/R/etc/Renviron
