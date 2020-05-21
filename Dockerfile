@@ -12,7 +12,7 @@ ENV PATH="${PATH}:/miniconda3/bin"
 RUN apt update \
   && apt-get install -y curl wget gzip
 
-RUN Rscript -e "install.packages(Ncpus=6,c('tidyverse', 'dplyr', 'devtools', 'data.table', 'reticulate', 'ggpubr', 'rlecuyer', 'pkgmaker', 'RcppEigen', 'ggrepel', 'gplots'))"
+RUN Rscript -e "install.packages(Ncpus=6,c('tidyverse', 'dplyr', 'devtools', 'data.table', 'reticulate', 'ggpubr', 'rlecuyer', 'pkgmaker', 'gtools', 'RcppEigen', 'ggrepel', 'gplots'))"
 RUN tlmgr install harvard ctable multirow eurosym comment setspace enumitem \
   && tlmgr path add
 RUN chown -R root:staff /opt/ \
