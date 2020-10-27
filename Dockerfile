@@ -27,4 +27,4 @@ RUN apt-get clean
 RUN echo 'R_ENVIRON_USER=~/.Renviron.OOD \
       \n' >>/usr/local/lib/R/etc/Renviron
 RUN rm /usr/local/lib/R/etc/Rprofile.site
-
+RUN sed -i '/auth-none=1/auth-none=0/' /etc/rstudio/disable_auth_rserver.conf 
