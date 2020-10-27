@@ -23,8 +23,8 @@ RUN Rscript -e "library(reticulate); install_miniconda(path='/miniconda3',update
 
 RUN apt-get clean
 RUN sed -i '/^R_LIBS_USER=/d' /usr/local/lib/R/etc/Renviron
-RUN echo 'R_ENVIRON=~/.Renviron.OOD \
-      \nR_ENVIRON_USER=~/.Renviron.OOD \
+#RUN echo 'R_ENVIRON=~/.Renviron.OOD \
+RUN echo 'R_ENVIRON_USER=~/.Renviron.OOD \
       \n' >>/usr/local/lib/R/etc/Renviron
-RUN rm /usr/local/lib/R/etc/Rprofile.site
+#RUN rm /usr/local/lib/R/etc/Rprofile.site
 
