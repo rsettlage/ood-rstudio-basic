@@ -14,7 +14,7 @@ RUN apt update \
 
 RUN Rscript -e "install.packages(Ncpus=6,c('rjags', 'tidyverse', 'dplyr', 'devtools', 'data.table', 'reticulate', 'ggpubr', 'rlecuyer', 'pkgmaker', 'gtools', 'RcppEigen', 'ggrepel', 'gplots', 'Rmpfr'))"
 RUN tlmgr install harvard ctable multirow eurosym comment setspace enumitem \
-      --repository http://ctan.math.illi­nois.edu/systems/texlive/tlnet\
+      --repository http://ctan.math.illinois.edu/systems/texlive/tlnet\
   && tlmgr path add
 RUN chown -R root:staff /opt/ \
   && chmod -R g+wx /opt/ \
