@@ -8,6 +8,7 @@ LABEL org.label-schema.license="GPL-2.0" \
       maintainer="Robert Settlage <rsettlag@vt.edu>"
 ## helpful read: https://divingintogeneticsandgenomics.rbind.io/post/run-rstudio-server-with-singularity-on-hpc/
 ENV PATH="${PATH}:/miniconda3/bin"
+ENV OPENBLAS_MAX_NUM_THREADS=128
 
 RUN apt update \
   && apt-get install -y curl wget gzip locate jags libmpfr-dev
