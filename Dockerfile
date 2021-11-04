@@ -1,7 +1,7 @@
 
 ## using rocker/verse and adding some stuff for ARC
 
-FROM rocker/verse:4.1.1
+FROM rocker/verse:4.1.2
 
 LABEL org.label-schema.license="GPL-2.0" \
       org.label-schema.vcs-url="https://github.com/rsettlag" \
